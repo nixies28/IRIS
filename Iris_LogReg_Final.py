@@ -28,7 +28,7 @@ def predict_iris_species_LogReg():
         sepal_width = float(entry2.get())
         petal_length = float(entry3.get())
         petal_width = float(entry4.get())
-        lst = [[sepal_length, sepal_width, petal_length, petal_width]]
+        lst = [sepal_length, sepal_width, petal_length, petal_width]
         result = predict_LogReg(lst)
         result_label.config(text=f"Predicted Species: {result}")
     except ValueError:

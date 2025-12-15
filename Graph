@@ -1,0 +1,47 @@
+'''from sklearn.datasets import load_iris
+
+iris = load_iris()
+print(iris.data)        # Features
+print(iris.target)      # Labels'''
+
+#histogram
+import pandas as pd
+import seaborn as sns
+
+df = sns.load_dataset("iris")
+print(df.head())
+
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.datasets import load_iris
+
+data = load_iris()
+sepal_length = data.data[:, 0]
+
+counts, bins = np.histogram(sepal_length, bins=10)
+
+plt.bar(bins[:-1], counts, 
+        width=(bins[1] - bins[0]) * 0.8,
+        color='blue')
+
+
+plt.xlabel("Sepal Length")
+plt.ylabel("Count")
+plt.title("Histogram with Gaps Between Bars (Blue)")
+plt.show()
+
+
+#scatter plot
+plt.scatter(df['sepal_length'], df['sepal_width'])
+plt.xlabel("Sepal Length")
+plt.ylabel("Sepal Width")
+plt.title("Sepal Length vs Sepal Width")
+plt.show()
+
+sns.scatterplot(data=df, x='sepal_length', y='sepal_width', hue='species')
+plt.title("Sepal Length vs Sepal Width by Species")
+plt.show()
+
+
+sns.pairplot(df, hue='species')
+plt.show()
